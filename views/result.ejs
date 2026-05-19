@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz Result</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+.container{
+width:70%;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+}
+
+.correct{
+color:green;
+}
+
+.wrong{
+color:red;
+}
+
+button{
+padding:10px 20px;
+background:purple;
+color:white;
+border:none;
+margin:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Your Quiz Result</h1>
+
+<h2>Score: <%= score %> / <%= total %></h2>
+
+<p>Correct: <%= correctCount %></p>
+<p>Wrong: <%= wrongCount %></p>
+
+<hr>
+
+<h2>Answer Review</h2>
+
+<% results.forEach(function(r){ %>
+
+<p><b>Question:</b> <%= r.question %></p>
+<p>Your Answer: <%= r.userAnswer %></p>
+<p>Correct Answer: <%= r.correctAnswer %></p>
+
+<% if(r.isCorrect){ %>
+<p class="correct">Correct</p>
+<% } else { %>
+<p class="wrong">Wrong</p>
+<% } %>
+
+<hr>
+
+<% }) %>
+
+<a href="/leaderboard"><button>Leaderboard</button></a>
+
+<a href="/"><button>Home</button></a>
+
+</div>
+
+</body>
+</html>
